@@ -7,8 +7,15 @@ export default function App() {
       <Text style={{ color: 'blue' }}>Hola Coder! y mas</Text>
       <TouchableOpacity onPress={() => console.log('PRESS IT')} style={{ backgroundColor: 'red' }}>
         <Text>TOUCH ME!</Text>
-
       </TouchableOpacity>
+      <View style={{ justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: 'black', borderRadius: 30 }}>
+        <Text>Produdct 1</Text>
+        <Text>Produdct 2</Text>
+        <Text>Produdct 3</Text>
+        <Text>Produdct 4</Text>
+        <Text>Produdct 5</Text>
+        <Text>Produdct 6</Text>
+      </View>
       <StatusBar style="auto" />
     </View>
   );
