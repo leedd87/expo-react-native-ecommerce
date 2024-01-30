@@ -9,7 +9,7 @@ export default function App() {
         <Text>TOUCH ME!</Text>
       </TouchableOpacity>
       <View style={{ justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: 'black', borderRadius: 10, height: 200, width: 300 }}>
-        <Text style={[styles.backgroundColor, { color: 'yellow' }]}>Produdct 1</Text>
+        <Text style={[styles.backgroundColor, { color: 'white' }]}>Produdct 1</Text>
         <Text>Produdct 2</Text>
         <Text>Produdct 3</Text>
         <Text>Produdct 4</Text>
