@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   return (
@@ -16,11 +16,14 @@ export default function App() {
         <Text>Produdct 5</Text>
         <Text>Produdct 6</Text>
       </View>
-      <FlatList
+      {/* <FlatList
         data={array}
         renderItem={(item) => <Text>{item.name}</Text>}
         keyExtractor={item => item.id}
-      />
+      /> */}
+      <Pressable onPress={() => console.log('HAZ ALGO')}>
+        <Text>Press Me</Text>
+      </Pressable>
       <StatusBar style="auto" />
     </View>
   );
