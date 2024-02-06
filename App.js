@@ -1,27 +1,49 @@
 import { StatusBar } from 'expo-status-bar';
 import { FlatList, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import dataPlantas from './src/data/data.json'
+import { useEffect, useState } from 'react';
+console.log("🚀 ~ file: App.js:4 ~ plantasData:", dataPlantas)
 
 export default function App() {
+
+  const [planta, setPlanta] = useState('')
+
+  const [plantaArray, setPlantaArray] = useState([])
+
+
+  const addPlant = () => {
+    if (planta.trim() !== '') {
+      setPlantaArray([...plantaArray, planta]);
+      setPlanta('');
+    };
+  }
+
+  useEffect(() => {
+    console.log("🚀 ~ file: App.js:10 ~ planta:", planta)
+    console.log("🚀 ~ file: App.js:12 ~ plantaArray:", plantaArray)
+  }, [planta, plantaArray])
+
+
   return (
     <View style={styles.container}>
-      <Text style={{ color: 'blue' }}>Hola Coder! y mas</Text>
-      <TouchableOpacity onPress={() => console.log('PRESS IT')} style={{ backgroundColor: 'red' }}>
-        <Text>TOUCH ME!</Text>
-      </TouchableOpacity>
-      <View style={{ justifyContent: 'center', alignItems: 'center', borderWidth: 1, borderColor: 'black', borderRadius: 10, height: 200, width: 300 }}>
-        <Text style={[styles.backgroundColor, { color: 'white' }]}>Produdct 1</Text>
-        <Text>Produdct 2</Text>
-        <Text>Produdct 3</Text>
-        <Text>Produdct 4</Text>
-        <Text>Produdct 5</Text>
-        <Text>Produdct 6</Text>
-        {/* //TODO DESAFIO 2 */}
-      </View>
-      {/* <FlatList
-        data={array}
-        renderItem={(item) => <Text>{item.name}</Text>}
-        keyExtractor={item => item.id}
-      /> */}
+
+
+      <TextInput style={{
+        width: 140,
+        height: 50,
+        borderWidth: 1,
+        paddingHorizontal: 10,
+        borderRadius: 8,
+        fontSize: 16,
+      }}
+        placeholder='Agregar planta'
+        placeholderTextColor={'white'}
+        value={planta}
+        onChangeText={text => setPlanta(text)}
+        onSubmitEditing={addPlant}
+      />
+
+
       <Pressable onPress={() => console.log('HAZ ALGO')}>
         <Text>Press Me</Text>
       </Pressable>
@@ -30,14 +52,14 @@ export default function App() {
   );
 }
 
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'gray',
+    backgroundColor: '#456a27',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  textContainer: {
-    backgroundColor: 'blue'
-  }
-});
+
+})

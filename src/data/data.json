@@ -1,0 +1,54 @@
+{
+    "dataPlantas": [
+      {
+        "id": 1,
+        "name": "Rosa",
+        "quantity": 20
+      },
+      {
+        "id": 2,
+        "name": "Orquídea",
+        "quantity": 15
+      },
+      {
+        "id": 3,
+        "name": "Cactus",
+        "quantity": 30
+      },
+      {
+        "id": 4,
+        "name": "Lirio",
+        "quantity": 25
+      },
+      {
+        "id": 5,
+        "name": "Tomillo",
+        "quantity": 40
+      },
+      {
+        "id": 6,
+        "name": "Helecho",
+        "quantity": 18
+      },
+      {
+        "id": 7,
+        "name": "Bambú",
+        "quantity": 22
+      },
+      {
+        "id": 8,
+        "name": "Suculenta",
+        "quantity": 12
+      },
+      {
+        "id": 9,
+        "name": "Aloe Vera",
+        "quantity": 28
+      },
+      {
+        "id": 10,
+        "name": "Lavanda",
+        "quantity": 35
+      }
+    ]
+  }
