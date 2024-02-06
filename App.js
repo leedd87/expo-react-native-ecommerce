@@ -15,7 +15,7 @@ export default function App() {
         <Text>Produdct 4</Text>
         <Text>Produdct 5</Text>
         <Text>Produdct 6</Text>
-        {/* //TODO DESAFIO 3 */}
+        {/* //TODO DESAFIO 2 */}
       </View>
       {/* <FlatList
         data={array}
