@@ -1,11 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { FlatList, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import dataPlantas from './src/data/data.json'
 import { useEffect, useState } from 'react';
-console.log("🚀 ~ file: App.js:4 ~ plantasData:", dataPlantas)
+import { StatusBar } from 'expo-status-bar';
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import dataPlantas from './src/data/data.json'
 
 export default function App() {
 
+  console.log("🚀 ~ file: App.js:4 ~ plantasData:", dataPlantas)
   const [planta, setPlanta] = useState('')
 
   const [plantaArray, setPlantaArray] = useState([])
