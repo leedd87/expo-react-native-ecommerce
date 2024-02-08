@@ -8,17 +8,13 @@ import {
   FlatList,
   StatusBar,
 } from 'react-native';
+import { SearchBar } from './src/components';
+
 
 export default function App() {
   const [planta, setPlanta] = useState('');
   const [plantaArray, setPlantaArray] = useState([]);
-
-  const addPlant = () => {
-    if (planta.trim() !== '') {
-      setPlantaArray([...plantaArray, { name: planta, crossedOut: false }]);
-      setPlanta('');
-    }
-  };
+  const [error, setError] = useState('');
 
   const toggleCrossedOut = (index) => {
     const updatedPlants = plantaArray.map((plant, i) => {
@@ -32,7 +28,7 @@ export default function App() {
   };
 
   const removePlant = (index) => {
-    const updatedPlants = plantaArray.filter((i) => i !== index);
+    const updatedPlants = plantaArray.filter((_, i) => i !== index);
     setPlantaArray(updatedPlants);
   };
 
@@ -40,24 +36,22 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.content}>
-        <TextInput
-          style={styles.textInput}
-          placeholder="Agregar planta..."
-          placeholderTextColor={'white'}
-          value={planta}
-          onChangeText={(text) => setPlanta(text)}
-          onSubmitEditing={addPlant}
-        />
 
+        <SearchBar planta={planta} setPlanta={setPlanta} plantaArray={plantaArray} setPlantaArray={setPlantaArray} error={error} setError={setError} />
         <FlatList
           data={plantaArray}
           renderItem={({ item, index }) => (
-            <View
-              style={styles.listContainer}
-            >
-              <Text style={styles.textStyle}>{item.name}</Text>
+            <View style={styles.listContainer}>
+              <Text
+                style={[
+                  styles.textStyle,
+                  { textDecorationLine: item.crossedOut ? 'line-through' : 'none', color: item.crossedOut ? 'gray' : 'black' }
+                ]}
+              >
+                {item.name}
+              </Text>
               <Pressable
-                style={[styles.pressableStyle, { marginRight: 10, }]}
+                style={[styles.pressableStyle, { marginRight: 10 }]}
                 onPress={() => toggleCrossedOut(index)}
               >
                 <Text style={[styles.iconStyle, { color: 'green' }]}>O</Text>
@@ -66,11 +60,11 @@ export default function App() {
                 style={styles.pressableStyle}
                 onPress={() => removePlant(index)}
               >
-                <Text style={[styles.iconStyle, { color: 'red', }]}>X</Text>
+                <Text style={[styles.iconStyle, { color: 'red' }]}>X</Text>
               </Pressable>
             </View>
           )}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
       </View>
     </View>
@@ -117,11 +111,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginRight: 15,
     width: 100,
-    textDecorationLine: item.crossedOut ? 'line-through' : 'none',
-    color: item.crossedOut ? 'gray' : 'black',
   },
   iconStyle: {
     fontSize: 18,
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+  },
 });
